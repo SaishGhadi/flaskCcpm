@@ -3,7 +3,7 @@ from flask_cors import CORS
 import pandas as pd
 import joblib
 
-app = Flask(__name__)
+app = Flask(name)
 CORS(app)  # Enable CORS for Laravel access
 
 model = joblib.load('cc_price_model.pkl')
@@ -21,9 +21,9 @@ def predict():
 
         prediction = model.predict(input_df)
         return jsonify({'predicted_price': prediction[0]})
-    
+
     except Exception as e:
         return jsonify({'error': str(e)})
 
-if __name__ == '__main__':
+if name == 'main':
     app.run(debug=True)
