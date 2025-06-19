@@ -6,7 +6,7 @@ import joblib
 app = Flask(__name__)
 CORS(app)  # Enable CORS for Laravel access
 
-model = joblib.load('cc_price_model.pkl')
+model = joblib.load('carbon_price_hybrid_model.pkl')
 
 @app.route('/')
 def home():
